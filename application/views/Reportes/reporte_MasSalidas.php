@@ -8,8 +8,8 @@
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
-        <div class="col-sm-6">
-          <h5>REPORTE DE MATERIALES CON MAS SALIDAS</h5>
+        <div class="col-sm-12">
+          <h1>REPORTE DE MATERIALES CON MAS SALIDAS</h1>
         </div>
         <div class="col-sm-6">
           
@@ -29,8 +29,8 @@
             <div class="card">
               <div class="card-header">                                
                 <div class="row p-3">
-                <div class="col-md-7">
-                  <h5 class="card-title">Tabla de reporte de materiales con más salidas</h5>
+                <div class="col-md-12">
+                  <h2 class="card-title">Tabla de reporte</h2>
                 </div>
                   <div class="col-md-2">
                     <!--<button type="button" class="btn btn-default float-right" id="daterange-btn" name="venta-filtro-fecha">
