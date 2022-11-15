@@ -20,6 +20,7 @@
 
 
 
+<button type="button" class="btn btn-danger "onclick="location.href='listaPdf'" >PDF</button>
 
     <!-- Main content -->
     <section class="content">
