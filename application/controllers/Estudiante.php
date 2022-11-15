@@ -11,10 +11,35 @@ class Estudiante extends CI_Controller {
 	{
 		$listaEstudiantes=$this->estudiante_model->listaEstudiantes();
 		$data['estudiante']=$listaEstudiantes;
+		$listaClases=$this->clase_model->listaClases();
+		$data['clase']=$listaClases;
+		$listaUsuarios=$this->usuario_model->listaUsuarios();
+		$data['usuario']=$listaUsuarios;
 
 		$this->load->view('inc/headersbadmin');
 		$this->load->view('inc/Sidebarsbadmin');
-		$this->load->view('listaEstudiantes',$data);
+		$this->load->view('Estudiantes/listaEstudiantes',$data);
+		$this->load->view('inc/creditos');
+		$this->load->view('inc/footersbadmin');
+	}
+
+
+		public function index2()
+	{
+		$listaEstudiantes=$this->estudiante_model->listaEstudiantesClase();
+		$data['estudiante']=$listaEstudiantes;
+        //$listaEstudiantes = $listaEstudiantes->result();
+		$data['estudiante']=$listaEstudiantes;
+		$listaClases=$this->clase_model->listaClases();
+		$data['clase']=$listaClases;
+		$listaUsuarios=$this->usuario_model->listaUsuarios();
+		$data['usuario']=$listaUsuarios;
+
+
+
+		$this->load->view('inc/headersbadmin');
+		$this->load->view('inc/Sidebarsbadmin');
+		$this->load->view('Estudiantes/listaEstudiantesClase',$data);
 		$this->load->view('inc/creditos');
 		$this->load->view('inc/footersbadmin');
 	}
@@ -29,7 +54,7 @@ class Estudiante extends CI_Controller {
 		$spreadsheet = new Spreadsheet();
 		$sheet = $spreadsheet->getActiveSheet();
 		$sheet->setCellValue('A1', 'ID');
-		$sheet->setCellValue('B1', 'Nombre');
+		$sheet->setCellValue('B1', 'Nombres');
 		$sheet->setCellValue('C1', 'Primer Apellido');
 		$sheet->setCellValue('D1', 'Segundo Apellido');
 		$sheet->setCellValue('E1', 'Fecha nacimiento');
@@ -54,17 +79,27 @@ class Estudiante extends CI_Controller {
 
 	public function agregar()
 	{
+	    $listaClases=$this->clase_model->listaClases();
+		$data['clase']=$listaClases;
 		$listaEstudiantes=$this->estudiante_model->listaEstudiantes();
 		$data['estudiante']=$listaEstudiantes;
+		$listaUsuarios=$this->usuario_model->listaUsuarios();
+		$data['usuario']=$listaUsuarios;
+      
 
 		$this->load->view('inc/headersbadmin');
-		$this->load->view('formularioEstudiante');
+		$this->load->view('inc/Sidebarsbadmin');
+		$this->load->view('Estudiantes/formularioEstudiante',$data);
+        $this->load->view('inc/creditos');
 		$this->load->view('inc/footersbadmin');
+		
+	
 	}
 
 	public function agregarbd()
 	{
-
+		$idUsuario=$_POST['idUsuario'];
+        
 		$data['nombre']=$_POST['nombre'];
 		$data['primerApellido']=$_POST['primerApellido'];
 		$data['segundoApellido']=$_POST['segundoApellido'];
@@ -72,6 +107,33 @@ class Estudiante extends CI_Controller {
 		$data['bautizado']=$_POST['bautizado'];
         $data['padres']=$_POST['padres'];
         $data['NumeroReferencia']=$_POST['NumeroReferencia'];
+        $data['idUsuario']=$_POST['idUsuario'];
+        $data['idClase']=$_POST['idClase'];
+
+      
+        $nombrearchivo=$idUsuario.".jpg";
+		$config['upload_path']='./fotos/estudiantes';
+		$config['file_name']=$nombrearchivo;
+		$direccion="./fotos/estudiantes".$nombrearchivo;
+		if (file_exists($direccion)) {
+			unlink($direccion);
+		}
+		
+
+		$config['allowed_types']='jpg|png|gif';
+		$this->load->library('upload',$config);
+
+		if (!$this->upload->do_upload()) {
+			$data['error']=$this->upload->display_errors();
+			
+		}
+		else {
+			$data['foto']=$nombrearchivo;
+			$this->upload->data();
+		}
+
+
+		
 
 		$listaEstudiantes=$this->estudiante_model->agregarestudiante($data);
 		redirect('Estudiante/index','refresh');
@@ -80,22 +142,29 @@ class Estudiante extends CI_Controller {
 	public function eliminarbd()
 	{
 		$idEstudiante=$_POST['idEstudiante'];
-		$this->estudiante_model->eliminarestudiante($idEstudiante);
+		$data['estado']='5';
+
+		$this->estudiante_model->modificarestudiante($idEstudiante,$data);
 		redirect('Estudiante/index','refresh');
 	}
 
 	public function modificar()
 	{
+		$listaClases=$this->clase_model->listaClases();
+		$data['clase']=$listaClases;
 		$idEstudiante=$_POST['idEstudiante'];
 		$data['infoestudiante']=$this->estudiante_model->recuperarestudiante($idEstudiante);
 		
 		$this->load->view('inc/headersbadmin');
-		$this->load->view('formulariomodificarEstudiante',$data);
+		$this->load->view('inc/Sidebarsbadmin');
+		$this->load->view('Estudiantes/formulariomodificarEstudiante',$data);
 		$this->load->view('inc/creditos');
 		$this->load->view('inc/footersbadmin');
 	}
 	public function modificarbd()
-	{
+	{   
+	
+		
 		$idEstudiante=$_POST['idEstudiante'];
 		$data['nombre']=$_POST['nombre'];
 		$data['primerApellido']=$_POST['primerApellido'];
@@ -104,17 +173,17 @@ class Estudiante extends CI_Controller {
 		$data['bautizado']=$_POST['bautizado'];
         $data['padres']=$_POST['padres'];
         $data['NumeroReferencia']=$_POST['NumeroReferencia'];
-
+  
 		$nombrearchivo=$idEstudiante.".jpg";
-		$config['upload_path']='./uploads2';
+		$config['upload_path']='./fotos/estudiantes';
 		$config['file_name']=$nombrearchivo;
-		$direccion="./uploads2/".$nombrearchivo;
+		$direccion="./fotos/estudiantes/".$nombrearchivo;
 		if (file_exists($direccion)) {
 			unlink($direccion);
 		}
 		
 
-		$config['allowed_types']='jpg';
+		$config['allowed_types']='jpg|png|gif';
 		$this->load->library('upload',$config);
 
 		if (!$this->upload->do_upload()) {
@@ -147,7 +216,7 @@ class Estudiante extends CI_Controller {
 
 		$this->load->view('inc/headersbadmin');
 		$this->load->view('inc/Sidebarsbadmin');
-		$this->load->view('listaEstudiantesdeshabilitados',$data);
+		$this->load->view('Estudiantes/listaEstudiantesdeshabilitados',$data);
 		$this->load->view('inc/creditos');
 		$this->load->view('inc/footersbadmin');
 	}

@@ -1,9 +1,10 @@
 <section class="ftco-section">
-<div class="container" >
-		<div class="row justify-content-center">
-			<div class="col-md-6 col-lg-4">
+<div class="container">
+	<center>
+		<div class="row justify-content-center col-md-4"style="background:#ff9800">
+			<div class="col-md-12 " style="background:#900c3f">
 				<div class="login-wrap p-0">
-					<h1 class="mb-4 text-center">Login</h1>
+					<h1 class="mb-4 text-center">ACCESO</h1>
 					<?php
 						switch($msg)
 						{
@@ -23,10 +24,10 @@
 						<h2 class="text-center"><?php echo $mensaje; ?></h2>
 
 						<?php
-						echo form_open_multipart('Usuarios/validar',array('id'=>'form1'))
+						echo form_open_multipart('Acceso/validar',array('id'=>'form1','class'))
 						?>
-						<div class="mb-3">
-							<input type="text" name="login" class="form-control" placeholder="Login" >
+						<div class="form-group">
+							<input type="text" name="acceso" class="form-control" placeholder="Login" >
 						</div>
 
 						<div class="form-group">
@@ -42,5 +43,6 @@
 				</div>
 			</div>
 		</div>
+					</center>
 </div>
 	</section>

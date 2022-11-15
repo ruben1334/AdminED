@@ -14,7 +14,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url(); ?>Log/css/style.css">
 
 	</head>
-	<body class="img js-fullheight" style="background-image: url('href=<?php echo base_url(); ?>Log/images/bg.jpg');">
-	
-
-	
+	<body class="img js-fullheight" style="background-image: url('<?php echo base_url(); ?>Log/images/img2.jpg');">
