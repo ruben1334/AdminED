@@ -9,7 +9,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-12">
-          <h1>REPORTE DE MATERIALES CON MAS SALIDAS</h1>
+          <h1>REPORTE DE MATERIALES CON MAS SALIDAS POR MESES</h1>
         </div>
         <div class="col-sm-6">
           
@@ -26,7 +26,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <button type="button" class="btn btn-danger "onclick="location.href='listaPdf'" >PDF</button>
+            <button type="button" class="btn btn-danger "onclick="location.href='listaSalidasPdf'" >PDF</button>
             <div class="card">
                                               
                 <div class="row p-3">

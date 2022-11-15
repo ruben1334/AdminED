@@ -191,7 +191,17 @@ class pedido_model extends CI_Model {
         $this->db->order_by('SUM(pd.cantidad)', 'desc');
         return $this->db->get()->result_array();
     }   
-
+ function obtenerMaterialesMasPedidos() {
+        $this->db->select('mt.*, SUM(pd.cantidad) as cantidad');
+        $this->db->from('material mt');                
+        $this->db->join('pdetalle pd','pd.idMaterial = mt.idMaterial');
+        $this->db->join("pedido p","pd.idPedido = p.idPedido"); 
+        $this->db->where('mt.estado', 1);  
+      
+        $this->db->group_by('mt.idMaterial');
+        $this->db->order_by('SUM(pd.cantidad)', 'desc');
+        return $this->db->get()->result_array();
+    }  
     function obtenerStock($startDate, $endDate) {
         $this->db->select('mt.*');
         $this->db->from('material mt');                 
