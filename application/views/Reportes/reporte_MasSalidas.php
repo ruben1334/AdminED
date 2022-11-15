@@ -18,7 +18,7 @@
     </div><!-- /.container-fluid -->
   </section>
 
-<button type="button" class="btn btn-danger "onclick="location.href='listaPdf'" >PDF</button>
+
 
 
     <!-- Main content -->
@@ -26,11 +26,12 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
+            <button type="button" class="btn btn-danger "onclick="location.href='listaPdf'" >PDF</button>
             <div class="card">
-              <div class="card-header">                                
+                                              
                 <div class="row p-3">
                 <div class="col-md-12">
-                  <h2 class="card-title">Tabla de reporte</h2>
+                  
                 </div>
                   <div class="col-md-2">
                     <!--<button type="button" class="btn btn-default float-right" id="daterange-btn" name="venta-filtro-fecha">
@@ -52,7 +53,7 @@
                 <div class="container text-left">
                   
                 </div>
-              </div>
+           
               <!-- /.card-header -->
               <div class="card-body">
                 

@@ -18,20 +18,27 @@
     </div><!-- /.container-fluid -->
   </section>
 
+ 
 
 
-<button type="button" class="btn btn-danger "onclick="location.href='listaPdf'" >PDF</button>
 
     <!-- Main content -->
     <section class="content">
+
       <div class="container-fluid">
         <div class="row">
+              <div class="border-top">
+    <div class="btn-group">
+
+<button type="button" class="btn btn-danger "onclick="location.href='listaPdf'" >PDF</button>
+    </div>
+ </div>
           <div class="col-12">
             <div class="card">
-              <div class="card-header">                                
+                                            
                 <div class="row p-3">
                 <div class="col-md-7">
-                  <h3 class="card-title">Tabla de Reporte</h3>
+           
                 </div>
                   <div class="col-md-2">
                     <!--<button type="button" class="btn btn-default float-right" id="daterange-btn" name="pedido-filtro-fecha">
@@ -44,8 +51,8 @@
                 </div>
                 </div>
                 <div class="col-lg-3">
-                  <div class="input-group">
-                    <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2" id="reportrange" disabled="true">
+                 <div class="input-group">
+                    <input type="hidden" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2" id="reportrange" disabled="true">
                    <!-- <button class="btn btn-outline-secondary" type="button" id="btn-buscar-ventas">Buscar</button>-->
                   </div>
                 </div>
@@ -53,7 +60,7 @@
                 <div class="container text-left">
                   
                 </div>
-              </div>
+              
               <!-- /.card-header -->
               <div class="card-body">
                 
