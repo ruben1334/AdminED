@@ -30,7 +30,7 @@
               <div class="card-header">                                
                 <div class="row p-3">
                 <div class="col-md-7">
-                  <h3 class="card-title">Tabla de Reporte de Stock</h3>
+                  <h3 class="card-title">Tabla de Reporte</h3>
                 </div>
                   <div class="col-md-2">
                     <!--<button type="button" class="btn btn-default float-right" id="daterange-btn" name="pedido-filtro-fecha">
