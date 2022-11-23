@@ -30,7 +30,7 @@
               <div class="border-top">
     <div class="btn-group">
 
-<button type="button" class="btn btn-danger "onclick="location.href='listaPdf'" >PDF</button>
+<button type="button" class="btn btn-danger "onclick="location.href='listaStockPdf'" >PDF</button>
     </div>
  </div>
           <div class="col-12">
@@ -64,7 +64,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="zero_config" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>#</th>

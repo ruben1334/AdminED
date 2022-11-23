@@ -459,7 +459,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </li>
               
 
-            <!--  <li class="sidebar-item">
+             <li class="sidebar-item">
                 <a
                   class="sidebar-link has-arrow waves-effect waves-dark"
                   href="javascript:void(0)"
@@ -495,7 +495,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     >
                   </li>
                 </ul>
-              </li>-->
+              </li>
 
                    <li class="sidebar-item">
                 <a

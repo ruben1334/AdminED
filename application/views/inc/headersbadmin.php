@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="es">
 
   <head>
     <meta charset="utf-8" />
@@ -24,12 +24,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="../../uploads/logo1.png"
+      href="<?php echo base_url();?>uploads/logo1.png"
     />
     <!-- Custom CSS -->
-    <link href="../../assets/libs/flot/css/float-chart.css" rel="stylesheet" />
+    <link href="<?php echo base_url();?>assets/libs/flot/css/float-chart.css" rel="stylesheet" />
     <!-- Custom CSS -->
-    <link href="../../dist/css/style.min.css" rel="stylesheet" />
+    <link href="<?php echo base_url();?>dist/css/style.min.css" rel="stylesheet" />
+   
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -99,6 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script src="<?php echo base_url();?>assets/vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
    <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+
 
   <!-- iCheck 1.0.1 -->
   <script src="<?php echo base_url();?>assets/vistas/plugins/iCheck/icheck.min.js"></script>

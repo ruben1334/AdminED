@@ -202,15 +202,15 @@ class pedido_model extends CI_Model {
         $this->db->order_by('SUM(pd.cantidad)', 'desc');
         return $this->db->get()->result_array();
     }  
-    function obtenerStock($startDate, $endDate) {
+    function obtenerStock() {
         $this->db->select('mt.*');
         $this->db->from('material mt');                 
         $this->db->where('mt.estado', 1);  
         /* $this->db->order_by('-SUM(d.cantidad)'); */
-        if ($startDate != null && $endDate != null) {
-            $this->db->where('DATE(fecha) >=', date('Y-m-d',strtotime($startDate)));
-            $this->db->where('DATE(fecha) <=', date('Y-m-d',strtotime($endDate)));
-        }
+        //if ($startDate != null && $endDate != null) {
+            //$this->db->where('DATE(fecha) >=', date('Y-m-d',strtotime($startDate)));
+            //$this->db->where('DATE(fecha) <=', date('Y-m-d',strtotime($endDate)));
+        //}
         $this->db->group_by('mt.idMaterial');
         $this->db->order_by('mt.stock', 'desc');
         return $this->db->get()->result_array();
